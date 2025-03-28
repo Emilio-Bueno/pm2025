@@ -1,56 +1,73 @@
 import { useState } from "react";
 
 const CadastroProfessor1781432312005 = ({ adicionarProfessor }) => {
-    const [idFuncional, setIdFuncional] = useState("");
-    const [nome, setNome] = useState("");
-    const [email, setEmail] = useState("");
+    const [form, setForm] = useState({
+        idFuncional: "",
+        nome: "",
+        email: ""
+    });
+
+    const handleChange = (e) => {
+        setForm({
+            ...form,
+            [e.target.name]: e.target.value
+        });
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        adicionarProfessor({ idFuncional, nome, email });
-        setIdFuncional("");
-        setNome("");
-        setEmail("");
+        adicionarProfessor(form);
+        setForm({
+            idFuncional: "",
+            nome: "",
+            email: ""
+        });
     };
 
     return (
-        <div className="w-full max-w-md">
-            <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Cadastro de Professor</h2>
+        <div>
+            <h2 className="text-xl font-semibold mb-4 text-gray-800">Cadastro de Professor</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                    <label className="block text-gray-700 mb-1">ID Funcional</label>
+                    <label className="block text-sm font-medium text-gray-700">ID Funcional</label>
                     <input
                         type="text"
-                        value={idFuncional}
-                        onChange={(e) => setIdFuncional(e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        name="idFuncional"
+                        value={form.idFuncional}
+                        onChange={handleChange}
+                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                         required
                     />
                 </div>
+                
                 <div>
-                    <label className="block text-gray-700 mb-1">Nome</label>
+                    <label className="block text-sm font-medium text-gray-700">Nome Completo</label>
                     <input
                         type="text"
-                        value={nome}
-                        onChange={(e) => setNome(e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        name="nome"
+                        value={form.nome}
+                        onChange={handleChange}
+                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                         required
                     />
                 </div>
+                
                 <div>
-                    <label className="block text-gray-700 mb-1">E-mail</label>
+                    <label className="block text-sm font-medium text-gray-700">E-mail</label>
                     <input
                         type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        name="email"
+                        value={form.email}
+                        onChange={handleChange}
+                        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                         required
                     />
                 </div>
-                <div className="flex justify-center">
+                
+                <div className="pt-2">
                     <button
                         type="submit"
-                        className="bg-blue-600 text-white py-2 px-6 rounded-md hover:bg-blue-700 transition"
+                        className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                     >
                         Cadastrar
                     </button>
