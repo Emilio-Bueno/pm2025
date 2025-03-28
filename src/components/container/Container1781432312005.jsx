@@ -14,10 +14,10 @@ const Container1781432312005 = () => {
     const [professores, setProfessores] = useState([]);
 
     return (
-        <div className="min-h-screen bg-gray-100 p-6">
-            <div className="max-w-6xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
+        <div className="min-h-screen bg-gray-100 flex flex-col items-center p-4">
+            <div className="w-full max-w-4xl bg-white rounded-lg shadow-md overflow-hidden">
                 <Menu1781432312005 setView={setView} currentView={view} />
-                <div className="p-6">
+                <div className="p-6 flex justify-center">
                     {!view && (
                         <div className="text-center py-10">
                             <p className="text-gray-500 text-lg">Selecione uma opção no menu</p>
