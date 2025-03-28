@@ -9,13 +9,14 @@ const Menu1781432312005 = ({ setView, currentView }) => {
     ];
 
     return (
-        <nav>
-            <h2>Menu</h2>
-            <ul>
+        <nav className="bg-blue-600 text-white">
+            <ul className="flex flex-wrap">
                 {menuItems.map(item => (
-                    <li 
+                    <li
                         key={item.id}
-                        onClick={() => setView(item.id)}>
+                        className={`px-4 py-3 cursor-pointer hover:bg-blue-700 transition ${currentView === item.id ? 'bg-blue-800 font-bold' : ''}`}
+                        onClick={() => setView(item.id)}
+                    >
                         {item.label}
                     </li>
                 ))}

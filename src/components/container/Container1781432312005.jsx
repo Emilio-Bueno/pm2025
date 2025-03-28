@@ -13,19 +13,24 @@ const Container1781432312005 = () => {
     const [disciplinas, setDisciplinas] = useState([]);
     const [professores, setProfessores] = useState([]);
 
-    const adicionarCurso = (curso) => setCursos([...cursos, curso]);
-    const adicionarDisciplina = (disciplina) => setDisciplinas([...disciplinas, disciplina]);
-    const adicionarProfessor = (professor) => setProfessores([...professores, professor]);
-
     return (
-        <div>
-            <Menu1781432312005 setView={setView} />
-            {view === "cadastroCurso" && <CadastroCurso1781432312005 adicionarCurso={adicionarCurso} />}
-            {view === "cadastroDisciplina" && <CadastroDisciplina1781432312005 adicionarDisciplina={adicionarDisciplina} />}
-            {view === "cadastroProfessor" && <CadastroProfessor1781432312005 adicionarProfessor={adicionarProfessor} />}
-            {view === "visualizarCurso" && <VisualizarCurso1781432312005 cursos={cursos} />}
-            {view === "visualizarDisciplina" && <VisualizarDisciplina1781432312005 disciplinas={disciplinas} />}
-            {view === "visualizarProfessor" && <VisualizarProfessor1781432312005 professores={professores} />}
+        <div className="min-h-screen bg-gray-100 p-6">
+            <div className="max-w-6xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
+                <Menu1781432312005 setView={setView} currentView={view} />
+                <div className="p-6">
+                    {!view && (
+                        <div className="text-center py-10">
+                            <p className="text-gray-500 text-lg">Selecione uma opção no menu</p>
+                        </div>
+                    )}
+                    {view === "cadastroCurso" && <CadastroCurso1781432312005 adicionarCurso={(curso) => setCursos([...cursos, curso])} />}
+                    {view === "cadastroDisciplina" && <CadastroDisciplina1781432312005 adicionarDisciplina={(disciplina) => setDisciplinas([...disciplinas, disciplina])} />}
+                    {view === "cadastroProfessor" && <CadastroProfessor1781432312005 adicionarProfessor={(professor) => setProfessores([...professores, professor])} />}
+                    {view === "visualizarCurso" && <VisualizarCurso1781432312005 cursos={cursos} />}
+                    {view === "visualizarDisciplina" && <VisualizarDisciplina1781432312005 disciplinas={disciplinas} />}
+                    {view === "visualizarProfessor" && <VisualizarProfessor1781432312005 professores={professores} />}
+                </div>
+            </div>
         </div>
     );
 };
