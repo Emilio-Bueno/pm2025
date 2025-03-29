@@ -19,7 +19,6 @@ const Menu1781432312005 = ({ setView }) => {
 
     return (
         <div className="relative inline-block text-left">
-            {/* Botão Principal do Menu */}
             <button
                 type="button"
                 onClick={() => setIsOpen(!isOpen)}
@@ -28,7 +27,7 @@ const Menu1781432312005 = ({ setView }) => {
                 aria-haspopup="true"
             >
                 Menu
-                {/* Ícone de Seta */}
+
                 <svg 
                     className={`-mr-1 ml-2 h-5 w-5 transform transition-transform ${isOpen ? 'rotate-180' : ''}`}
                     xmlns="http://www.w3.org/2000/svg" 
@@ -39,7 +38,6 @@ const Menu1781432312005 = ({ setView }) => {
                 </svg>
             </button>
 
-            {/* Lista Dropdown */}
             {isOpen && (
                 <div 
                     className="origin-top-right absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50"
